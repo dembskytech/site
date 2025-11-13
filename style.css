@@ -1,0 +1,579 @@
+/* --- Global Styles & Variables --- */
+:root {
+    /* MODERN DARK THEME PALETTE */
+    --primary-accent: #00AFFF; /* Vibrant Electric Blue - Main Accent */
+    --secondary-accent: #0077B6; /* A slightly deeper blue for support */
+    --cta-accent: #00D4FF; /* Brightest blue for main CTAs */
+
+    --bg-dark-primary: #121212; /* Very dark main background */
+    --bg-dark-secondary: #1E1E1E; /* Slightly lighter dark for cards, header */
+    --bg-dark-tertiary: #2A2A2A; /* For subtle contrasts or hover states on cards */
+
+    --text-light-primary: #F5F5F5; /* Main light text (off-white) */
+    --text-light-secondary: #B0B0B0; /* Lighter gray for secondary text */
+    --text-dark-placeholder: #777777; /* For form placeholders */
+
+    --border-color-dark: #333333; /* Subtle borders */
+    --border-accent: #00AFFF40; /* Accent border with transparency */
+
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Lato', sans-serif;
+    --box-shadow: 0 6px 20px rgba(0, 175, 255, 0.1);
+    --box-shadow-strong: 0 8px 25px rgba(0, 175, 255, 0.15);
+    --transition-main: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.7;
+    color: var(--text-light-primary);
+    background-color: var(--bg-dark-primary);
+    font-size: 16px;
+    overflow-x: hidden; /* Prevent horizontal scrollbars from off-screen animations */
+}
+
+/* --- Utility Classes --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .content-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .about-section .content-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+    .about-image {
+        justify-self: end;
+    }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--text-light-primary);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-accent);
+    position: relative;
+    padding-bottom: 10px;
+}
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-accent);
+    opacity: 0.7;
+}
+
+h3 { font-size: 1.6em; color: var(--primary-accent); }
+
+p {
+    margin-bottom: 15px;
+    color: var(--text-light-secondary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-accent);
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--cta-accent);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--bg-dark-secondary);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--border-color-dark);
+    transition: background-color 0.3s ease, transform 0.3s ease; /* For animations and scroll effects */
+}
+/* Optional: Scrolled header style example */
+/* header.scrolled { background-color: rgba(30, 30, 30, 0.95); backdrop-filter: blur(5px); } */
+
+
+.logo { /* Header text logo */
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-accent);
+    transition: transform 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links { display: flex; }
+.nav-links li { margin-left: 25px; }
+.nav-links a {
+    font-weight: 500;
+    color: var(--text-light-primary);
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.nav-links a:hover {
+    color: var(--cta-accent);
+    transform: translateY(-2px);
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-accent);
+    transition: width 0.3s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--primary-accent); }
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: var(--primary-accent);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.hamburger:hover {
+    transform: scale(1.1);
+}
+
+/* --- Section Styling --- */
+section { padding: 80px 0; }
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1em;
+    color: var(--text-light-secondary);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(135deg, var(--bg-dark-primary) 0%, #071a2a 100%);
+    color: var(--text-light-primary);
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+.hero-section .container {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-logo { /* Already has animation logic applied directly via JS classes */
+    max-width: 450px;
+    width: 85%;
+    margin-bottom: 30px;
+    /* opacity and transform are handled by JS-added classes */
+}
+.hero-section .subtitle { /* Specific class for subtitle animation */
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: var(--text-light-secondary);
+    /* opacity and transform are handled by JS-added classes */
+}
+/* Keyframes for .animated-logo, .animated-subtitle, .animated-cta were provided before and should remain */
+/* Example (ensure these exist from previous steps): */
+.animated-logo { animation: fadeInScaleUp 1s ease-out 0.3s forwards; }
+@keyframes fadeInScaleUp { to { opacity: 1; transform: scale(1) translateY(0); } }
+.animated-subtitle { animation: fadeInSlideUp 0.8s ease-out 0.8s forwards; }
+.animated-cta { animation: fadeInSlideUp 0.8s ease-out 1.1s forwards; }
+@keyframes fadeInSlideUp { to { opacity: 1; transform: translateY(0); } }
+
+
+/* --- ANIMATION DEFINITIONS & PREPARATION --- */
+.animate-prepare {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+.animated.is-visible { /* This class is added by JS when element is intersecting */
+    opacity: 1;
+    transform: translate(0, 0) scale(1) !important; /* Reset transforms */
+}
+
+/* Specific Animation Styles (applied by JS via data-animation attribute) */
+.animate-prepare.fade-in {
+    transition: opacity 0.8s ease-out;
+}
+.animate-prepare.fade-in-up {
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.animate-prepare.slide-up {
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.animate-prepare.slide-in-left {
+    transform: translateX(-60px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.animate-prepare.slide-in-right {
+    transform: translateX(60px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.animate-prepare.scale-in {
+    transform: scale(0.85);
+    transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+/* --- Call to Action Buttons --- */
+.cta-button, .cta-button-secondary {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-main), border-color 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 0.95em;
+    position: relative;
+}
+.cta-button {
+    background-color: var(--primary-accent);
+    color: var(--bg-dark-primary);
+    border-color: var(--primary-accent);
+}
+.cta-button:hover {
+    background-color: var(--cta-accent);
+    border-color: var(--cta-accent);
+    color: var(--bg-dark-primary);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--box-shadow-strong);
+}
+.cta-button-secondary {
+    background-color: transparent;
+    color: var(--primary-accent);
+    border: 2px solid var(--primary-accent);
+}
+.cta-button-secondary:hover {
+    background-color: var(--primary-accent);
+    color: var(--bg-dark-primary);
+    transform: translateY(-2px);
+}
+
+/* --- About Section --- */
+.about-section { background-color: var(--bg-dark-primary); }
+.about-image img {
+    box-shadow: 0 0 30px rgba(0, 175, 255, 0.15);
+    max-width: 350px;
+    margin: 0 auto;
+    border: 2px solid var(--border-accent);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.about-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(0, 175, 255, 0.25);
+}
+.about-text ul { margin-top: 20px; }
+.about-text ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--text-light-secondary);
+    transition: color 0.3s ease;
+}
+.about-text ul li:hover { color: var(--text-light-primary); }
+.about-text ul li i {
+    color: var(--primary-accent);
+    margin-right: 10px;
+    font-size: 1.2em;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.about-text ul li:hover i {
+    transform: scale(1.2) rotate(-10deg);
+    color: var(--cta-accent);
+}
+
+/* --- Services Section --- */
+.services-section { background-color: var(--bg-dark-secondary); }
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.service-card {
+    background-color: var(--bg-dark-tertiary);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: var(--transition-main), border-color 0.3s ease;
+    border: 1px solid var(--border-color-dark);
+}
+.service-card:hover {
+    transform: translateY(-8px); /* More lift */
+    box-shadow: var(--box-shadow-strong);
+    background-color: #303030;
+    border-color: var(--primary-accent);
+}
+.service-icon {
+    color: var(--primary-accent);
+    margin-bottom: 20px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.service-card:hover .service-icon {
+    transform: scale(1.15) translateY(-5px) rotate(5deg);
+}
+.service-card h3 { color: var(--text-light-primary); }
+
+/* --- Portfolio Section --- */
+.portfolio-section { background-color: var(--bg-dark-primary); }
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.portfolio-item {
+    background-color: var(--bg-dark-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-main), border-color 0.3s ease;
+    border: 1px solid var(--border-color-dark);
+}
+.portfolio-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--box-shadow-strong);
+    border-color: var(--primary-accent);
+}
+.portfolio-item img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--primary-accent);
+    transition: transform 0.5s ease;
+}
+.portfolio-item:hover img { transform: scale(1.05); }
+.portfolio-item h3 { margin-bottom: 10px; color: var(--text-light-primary); }
+.portfolio-item p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    color: var(--text-light-secondary);
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section { background-color: var(--bg-dark-secondary); }
+.testimonial-wrapper { /* Added this wrapper in HTML for staggering */
+    /* No specific styles needed here unless for layout */
+}
+.testimonial-card {
+    background-color: var(--bg-dark-tertiary);
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 25px;
+    border-left: 5px solid var(--primary-accent);
+    transition: var(--transition-main), border-left-color 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: scale(1.02) translateX(5px);
+    border-left-color: var(--cta-accent);
+    box-shadow: var(--box-shadow-strong);
+}
+.testimonial-card blockquote {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+    color: var(--text-light-primary);
+}
+.testimonial-card blockquote::before {
+    content: '\201C';
+    font-size: 3em;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--primary-accent);
+    position: absolute;
+    left: -5px;
+    top: -15px;
+    opacity: 0.8;
+}
+.testimonial-author {
+    font-weight: bold;
+    text-align: right;
+    color: var(--primary-accent);
+    font-size: 0.95em;
+}
+
+/* --- Contact Section --- */
+.contact-section { background-color: var(--bg-dark-primary); }
+#contact-form {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    background-color: var(--bg-dark-secondary);
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color-dark);
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--primary-accent);
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color-dark);
+    border-radius: 5px;
+    font-family: var(--body-font);
+    font-size: 1em;
+    background-color: var(--bg-dark-tertiary);
+    color: var(--text-light-primary);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+.form-group input::placeholder, .form-group textarea::placeholder {
+    color: var(--text-dark-placeholder);
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 175, 255, 0.3), 0 0 10px rgba(0, 175, 255, 0.1);
+    transform: scale(1.01); /* Subtle scale on focus */
+}
+.contact-info { text-align: center; margin-top: 40px; }
+.contact-info p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text-light-secondary);
+}
+.contact-info i {
+    margin-right: 10px;
+    color: var(--primary-accent);
+    font-size: 1.2em;
+}
+.contact-info a { color: var(--primary-accent); }
+.contact-info a:hover {
+    color: var(--cta-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--bg-dark-secondary);
+    color: var(--text-light-secondary);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color-dark);
+}
+footer p { margin-bottom: 5px; opacity: 0.8; font-size: 0.9em; }
+footer a { color: var(--primary-accent); }
+footer a:hover {
+    color: var(--cta-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    h2 { font-size: 1.8em; }
+    .nav-links {
+        display: none; flex-direction: column; width: 100%;
+        position: absolute; top: 100%; left: 0;
+        background-color: var(--bg-dark-secondary);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        padding-bottom: 10px; border-top: 1px solid var(--border-color-dark);
+    }
+    .nav-links.active { display: flex; }
+    .nav-links li { margin: 10px 0; text-align: center; }
+    .nav-links a { padding: 10px 0; }
+    .hamburger { display: block; }
+
+    .about-section .content-grid { grid-template-columns: 1fr; }
+    .about-image { justify-self: center; margin-top: 20px; }
+
+    section { padding: 60px 0; }
+    .hero-section { padding-top: 60px; min-height: 70vh; }
+    .hero-logo { max-width: 300px; margin-bottom: 20px; }
+    .hero-section .subtitle { font-size: 1.1em; }
+
+    /* Adjust slide-in animations for mobile */
+    .animate-prepare.slide-in-left,
+    .animate-prepare.slide-in-right {
+        transform: translateX(0) translateY(30px); /* Change side slides to up slides */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo { max-width: 250px; }
+    .hero-section .subtitle { font-size: 1em; }
+    .cta-button, .cta-button-secondary { padding: 12px 25px; font-size: 0.9em; }
+    .service-card, .portfolio-item, .testimonial-card { padding: 20px; }
+    #contact-form { padding: 25px; }
+    h2 { font-size: 1.6em; }
+    h2::after { width: 60px; }
+    .logo { font-size: 1.3em; }
+}
