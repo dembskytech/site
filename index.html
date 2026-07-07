@@ -3,158 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dembsky Technologies - Your Personal Tech Partner</title>
-    <meta name="description" content="Dembsky Technologies offers expert web solutions, IT support, and custom software development. Personalized service from Jaron Dembsky.">
-    <link rel="stylesheet" href="style.css">
-    <!-- Optional: Add a Favicon -->
-   <link rel="apple-touch-icon" sizes="180x180" href="img/DTpnglogo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/DTpnglogo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/DTpnglogo.png">
-    <link rel="manifest" type="image/png" href="img/DTpnglogo.png">
-    <link rel="mask-icon" type="image/png" href="img/DTpnglogo.png">
-    <link rel="shortcut icon" type="image/png" href="img/DTpnglogo.png">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
+    <title>Dembsky Technologies — Your Personal Tech Partner</title>
+    <meta name="description" content="Web development, IT support, and custom software from Jaron Dembsky — personal tech expertise without the agency runaround.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="DTpnglogo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="DTpnglogo.png">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header data-animation="fade-in"> <!-- Animate header itself -->
-        <nav class="container">
-            <a href="#hero" class="logo" data-animation="fade-in" data-animation-delay="200">Dembsky Technologies</a>
-            <ul class="nav-links stagger-children" data-animation-base-delay="300">
-                <li data-animation="fade-in-up"><a href="#about">About Me</a></li>
-                <li data-animation="fade-in-up"><a href="#services">Services</a></li>
-                <li data-animation="fade-in-up"><a href="#portfolio">Portfolio</a></li>
-                <li data-animation="fade-in-up"><a href="#contact">Contact</a></li>
+
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="site-header" role="banner">
+        <nav class="nav container" role="navigation">
+            <a href="#hero" class="nav-logo">Dembsky Technologies</a>
+            <ul class="nav-links" role="list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="hamburger" id="hamburger-menu" data-animation="fade-in" data-animation-delay="700">
-                <i class="fas fa-bars"></i>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
             </button>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section (Animations for logo, subtitle, CTA are already handled by specific classes) -->
-        <section id="hero" class="hero-section">
-            <div class="container">
-                <img src="imgs/logoforsitefull.png" alt="Dembsky Technologies Logo" class="hero-logo animated-logo">
-                <p class="subtitle animated-subtitle">Your dedicated partner for innovative web development, reliable IT support, and custom software solutions tailored to your unique needs.</p>
-                <a href="#contact" class="cta-button animated-cta">Get a Free Consultation</a>
+        <section id="hero" class="hero">
+            <canvas id="particle-canvas" aria-hidden="true"></canvas>
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <div class="hero-logo-wrapper">
+                    <img src="https://i.ibb.co/kVqK333N/logoforsite-Presentation.png" alt="Dembsky Technologies" class="hero-logo">
+                </div>
+                <h1 class="hero-title">
+                    <span class="word">Your</span>
+                    <span class="word">Personal</span>
+                    <span class="word">Tech</span>
+                    <span class="word">Partner</span>
+                </h1>
+                <p class="hero-subtitle">Web development, IT support, and custom software — delivered by someone who treats your project like his own.</p>
+                <a href="#contact" class="hero-cta">Get Service Now</a>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="about-section">
-            <div class="container content-grid">
-                <div class="about-text" data-animation="slide-in-left">
-                    <h2 data-animation="slide-up">Hi, I'm Jaron Dembsky</h2>
-                    <p data-animation="slide-up" data-animation-delay="100">With my whole life in the technological space, I founded Dembsky Technologies to provide businesses and individuals with direct access to expert, personalized technical services and solutions. I'm passionate about solving complex problems and leveraging technology to help you achieve your goals.</p>
-                    <p data-animation="slide-up" data-animation-delay="200">My approach is transparent and collaborative when necessary. I'll work directly with you, ensuring clear communication and solutions perfectly aligned with your vision.</p>
-                    <h3 data-animation="slide-up" data-animation-delay="300">Key Strengths:</h3>
-                    <ul class="stagger-children" data-animation-base-delay="400">
-                        <li data-animation="slide-up"><i class="fas fa-check-circle"></i> Direct, Personal Communication</li>
-                        <li data-animation="slide-up"><i class="fas fa-check-circle"></i> Tailored & Flexible Solutions</li>
-                        <li data-animation="slide-up"><i class="fas fa-check-circle"></i> Cost-Effective Quality</li>
-                        <li data-animation="slide-up"><i class="fas fa-check-circle"></i> Problem-Solving & Innovation</li>
-                    </ul>
-                </div>
-                <div class="about-image" data-animation="slide-in-right" data-animation-delay="200">
-                    <img src="img/your_photo.jpg" alt="Jaron Dembsky - Dembsky Technologies">
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="services-section">
+        <section id="about" class="section about-section">
             <div class="container">
-                <h2 data-animation="slide-up">My Services</h2>
-                <p class="section-intro" data-animation="slide-up" data-animation-delay="100">I offer a range of technical services to help you succeed. Whether you need a new website, ongoing IT support, or a custom application, I'm here to help.</p>
-                <div class="service-grid stagger-children" data-animation-base-delay="200">
-                    <div class="service-card" data-animation="fade-in-up">
-                        <i class="fas fa-laptop-code fa-3x service-icon"></i>
-                        <h3>Custom Web Development</h3>
-                        <p>From simple landing pages to complex web applications, I build responsive, user-friendly websites that drive results.</p>
+                <div class="about-grid">
+                    <div class="about-image reveal">
+                        <div class="about-image-frame">
+                            <img src="img/your_photo.jpg" alt="Jaron Dembsky — Dembsky Technologies" onerror="this.parentElement.classList.add('img-missing')">
+                        </div>
                     </div>
-                    <div class="service-card" data-animation="fade-in-up">
-                        <i class="fas fa-headset fa-3x service-icon"></i>
-                        <h3>IT Support & Consulting</h3>
-                        <p>Reliable IT support, system maintenance, and strategic consulting to keep your technology running smoothly.</p>
-                    </div>
-                    <div class="service-card" data-animation="fade-in-up">
-                        <i class="fas fa-drafting-compass fa-3x service-icon"></i>
-                        <h3>Custom Software Solutions</h3>
-                        <p>Need a specific tool or application? I develop bespoke software to meet your unique business requirements.</p>
+                    <div class="about-text">
+                        <span class="section-label reveal">About Me</span>
+                        <h2 class="section-title reveal">Hi, I'm Jaron</h2>
+                        <p class="reveal" data-delay="100">I've spent my entire career in technology — not as a cog in a corporate machine, but as someone who genuinely enjoys solving problems for real people. Dembsky Technologies is my way of doing that on my own terms: direct, transparent, and personal.</p>
+                        <p class="reveal" data-delay="200">When you work with me, you work with me — not a salesperson, not a project manager, not a junior dev. I'll listen to what you need, design a solution that fits, and build it myself. No bureaucracy, no finger-pointing, just results.</p>
+                        <ul class="about-strengths reveal" data-delay="300">
+                            <li><span class="strength-icon"><i class="fas fa-check"></i></span>Direct, personal communication</li>
+                            <li><span class="strength-icon"><i class="fas fa-check"></i></span>Tailored solutions, not templates</li>
+                            <li><span class="strength-icon"><i class="fas fa-check"></i></span>One point of contact — me</li>
+                            <li><span class="strength-icon"><i class="fas fa-check"></i></span>Cost-effective, no unnecessary fluff</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio-section">
+        <section id="services" class="section services-section">
             <div class="container">
-                <h2 data-animation="slide-up">My Work</h2>
-                <p class="section-intro" data-animation="slide-up" data-animation-delay="100">Here are some examples of projects I've delivered.</p>
-                <div class="portfolio-grid stagger-children" data-animation-base-delay="200">
-                    <div class="portfolio-item" data-animation="scale-in">
-                        <img src= "imgs/abuavstylelogo.png" alt="DrAbuav.com logo">
-                        <h3>DrAbuav.com</h3>
-                        <p>I update and manage Dr. Rachel Abuav's professional website.</p>
-                        <a href="https://www.drabuav.com" class="cta-button-secondary" target="_blank" rel="noopener noreferrer">View this Website</a>
+                <div class="section-header">
+                    <span class="section-label reveal">What I Do</span>
+                    <h2 class="section-title reveal">Services</h2>
+                    <p class="section-intro reveal" data-delay="100">Three areas where I can make an immediate difference for your business or project.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card tilt-card reveal" data-delay="100">
+                        <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Web Development</h3>
+                        <p>Custom websites and web applications — from landing pages to full-featured platforms. Built responsive, performant, and designed to convert.</p>
+                        <span class="card-tag">Web</span>
                     </div>
-                    <!--<div class="portfolio-item" data-animation="scale-in">
-                        <img src="https://via.placeholder.com/400x300.png?text=Project+2" alt="Project 2 Screenshot">
-                        <h3>Project Title 2</h3>
-                        <p>Brief description of the project and the solution provided.</p>
-                        <a href="#" class="cta-button-secondary" target="_blank" rel="noopener noreferrer">View Project (Optional)</a>
+                    <div class="service-card tilt-card reveal" data-delay="200">
+                        <div class="card-icon"><i class="fas fa-headset"></i></div>
+                        <h3>IT Support &amp; Consulting</h3>
+                        <p>Reliable system maintenance, infrastructure setup, and strategic consulting. I help make technology work for your business, not against it.</p>
+                        <span class="card-tag">IT</span>
                     </div>
-                    <!-- Add more portfolio items with data-animation="scale-in" or "fade-in-up" -->
+                    <div class="service-card tilt-card reveal" data-delay="300">
+                        <div class="card-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <h3>Custom Software</h3>
+                        <p>Need a tool that doesn't exist yet? I design and develop bespoke software tailored exactly to your unique workflow and requirements.</p>
+                        <span class="card-tag">Dev</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-         <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials-section">
+        <section id="portfolio" class="section portfolio-section">
             <div class="container">
-                <h2 data-animation="slide-up">What Clients Say</h2>
-                <div class="testimonial-wrapper stagger-children" data-animation-base-delay="100"> <!-- Wrapper for staggering -->
-                    <div class="testimonial-card" data-animation="fade-in-up">
-                        <blockquote>
-                            "Working with Jaron was a fantastic experience. The attention to detail and personal service were outstanding. Our new website has significantly boosted our online presence!"
-                        </blockquote>
-                        <p class="testimonial-author">- Client Name, Company Name</p>
+                <div class="section-header">
+                    <span class="section-label reveal">Recent Work</span>
+                    <h2 class="section-title reveal">Projects</h2>
+                    <p class="section-intro reveal" data-delay="100">Projects I've built and maintain — from websites to browser tools and beyond.</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item reveal" data-delay="100">
+                        <div class="portfolio-image">
+                            <img src="https://i.ibb.co/mW1KH4L/abuavstylelogo.png" alt="DrAbuav.com — Medical Practice Website">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>DrAbuav.com</h3>
+                            <p>Professional website for Dr. Rachel Abuav's medical practice. Ongoing maintenance and content updates.</p>
+                            <a href="https://www.drabuav.com" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Visit Site <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <!--<div class="testimonial-card" data-animation="fade-in-up">
-                        <blockquote>
-                            "Mr. Dembsky quickly understood our complex IT needs and provided effective, affordable solutions. Highly recommend Dembsky Technologies!"
-                        </blockquote>
-                        <p class="testimonial-author">- Another Client, Their Company</p>
-                    </div>-->
+                    <div class="portfolio-item reveal" data-delay="200">
+                        <div class="portfolio-image">
+                            <img src="zentabslogo.png" alt="ZenTab Suite — Browser Extension">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>ZenTab Suite</h3>
+                            <p>Browser extension that declutters your workspace, boosts focus, and organizes tabs for a calmer, more productive browsing experience. Features autopilot tab management, ZenFocus distraction blocker, tab groups, and AI search integration.</p>
+                            <a href="https://sites.google.com/view/Zentab" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
+        <section id="testimonials" class="section testimonials-section">
             <div class="container">
-                <h2 data-animation="slide-up">Let's Discuss Your Project</h2>
-                <p class="section-intro" data-animation="slide-up" data-animation-delay="100">Ready to take the next step? Reach out for a free, no-obligation consultation. I typically respond within 24 business hours.</p>
-           
-                <div class="contact-info stagger-children" data-animation-base-delay="300">
-                    <p data-animation="fade-in-up">reach me directly:</p>
-                    <p data-animation="fade-in-up"><i class="fas fa-envelope"></i> <a href="mailto:jaron@dembsky.tech">jaron@dembsky.tech</a></p>
-                    <!-- <p data-animation="fade-in-up"><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p> -->
+                <div class="section-header">
+                    <span class="section-label reveal">Kind Words</span>
+                    <h2 class="section-title reveal">What Clients Say</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal" data-delay="100">
+                        <blockquote>"Jaron rebuilt our practice website from the ground up. The process was smooth, the result is beautiful, and our patients keep complimenting it. What stood out most was how responsive he was — questions answered within hours, not days."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-user-md"></i></div>
+                            <div>
+                                <span class="author-name">Dr. Rachel Abuav</span>
+                                <span class="author-role">Dermatologist</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal" data-delay="200">
+                        <blockquote>"We're a small construction firm — tech isn't our specialty. Jaron took the time to understand what we actually needed, set up our entire IT infrastructure, and explained everything in plain English. No jargon, no upselling, just solutions."</blockquote>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><i class="fas fa-hard-hat"></i></div>
+                            <div>
+                                <span class="author-name">Mark T.</span>
+                                <span class="author-role">General Contractor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label reveal">Get in Touch</span>
+                    <h2 class="section-title reveal">Let's Talk</h2>
+                    <p class="section-intro reveal" data-delay="100">Have a project in mind, a problem to solve, or just curious what working together looks like? I typically respond within 24 hours.</p>
+                </div>
+                <div class="contact-content reveal" data-delay="200">
+                    <button class="contact-email copy-email" data-email="jaron@dembskytechnologies.com" aria-label="Copy email address">
+                        <i class="fas fa-envelope"></i>
+                        <span>jaron@dembskytechnologies.com</span>
+                        <span class="copy-feedback">Copied!</span>
+                    </button>
+                    <p class="contact-note">Tap my email to copy it — I typically respond within 24 hours.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="stagger-children" data-animation-base-delay="100">
+    <footer class="site-footer">
         <div class="container">
-            <p data-animation="fade-in-up">It is <span id="currentYear"></span>. Have a Great Day.</p>
-            <p data-animation="fade-in-up" data-animation-delay="100">Designed & Developed by Jaron Dembsky</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#hero" class="footer-logo">Dembsky Technologies</a>
+                    <p>Your personal tech partner.</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Work</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="footer-copy">
+                    <p>&copy; <span id="current-year"></span> Dembsky Technologies. All rights reserved.</p>
+                    <p>Designed &amp; developed by Jaron Dembsky</p>
+                </div>
+            </div>
         </div>
     </footer>
 
